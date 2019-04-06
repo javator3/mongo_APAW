@@ -16,7 +16,7 @@ public class SelectExample {
         MongoCollection<Document> collection = mongoClient.getDatabase("new").getCollection("uzytkownicy");
 
 //        showAge(5, collection);
-//        showById(collection);
+//        showById("5ca876cb50d1b503d38fe891", collection);
         showBeetwen2and4(2, collection);
 
 //        for (Document document : collection.find()) {
@@ -46,9 +46,9 @@ public class SelectExample {
 
     // napisz metode która wypisze na ekran elemnety z kolekcji o podanym id, w przypadku gdy taki element nie istnieje w tabeli to zwróć odpowiedni komunikat
 
-    static void showById(MongoCollection<Document> collection) {
+    static void showById(String id, MongoCollection<Document> collection) {
 
-        Document first2 = collection.find(Filters.eq("_id", new ObjectId("5ca876cb50d1b503d38fe897"))).first();
+        Document first2 = collection.find(Filters.eq("_id", new ObjectId(id))).first();
         if (first2 == null) {
             System.out.println("brak uzytkownika");
         } else {
