@@ -7,6 +7,9 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
+
+import java.util.List;
+
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
@@ -24,12 +27,17 @@ public class MongoPojoExample {
         MongoCollection<User> collection = mongoClient.getDatabase("new").getCollection("uzytkownicy", User.class);
 
         for (User user : collection.find()) {
-            System.out.println(user.getLastname());
+            System.out.println(user);
         }
 
 //        collection.insertOne(new User("abc", "cde", 134));
 
 //        collection.deleteOne(Filters.eq("name", "Andy1"));
+
+//        collection.deleteMany(Filters.eq("name", "Andy2"));
+
+//        collection.insertOne(new User("dwe", "fert", 432));
+
 
     }
 }
